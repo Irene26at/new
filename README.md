@@ -11,7 +11,6 @@
 ### Team Members
 - Team Lead: Linta George - College of Engineering Perumon
 - Member 2: Irene Ann Thomas - College of Engineering Perumon
-- Member 3: [Name] - [College]
 
 ### Project Description
 [Smile-to-Calculate – A Fun Twist on Math!
