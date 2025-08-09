@@ -92,13 +92,16 @@ Once the calculation is done, release the webcam and close all OpenCV windows.
 For Software:We propose the development of “Smile-to-Calculate”, a web-based calculator that operates only when the user smiles. By integrating OpenCV’s real-time smile detection with a responsive web interface, the system ensures calculations are performed exclusively in a positive mood. This playful approach not only adds fun to a mundane task but also promotes happiness, making it ideal for educational tools, lighthearted productivity applications, and interactive tech showcases.
 
 # Screenshots (Add at least 3)
-![Screenshot1:-c:\Users\IRENE ANN THOMAS\Pictures\Screenshots\Screenshot 2025-08-09 063915.png]
+<img width="1920" height="1080" alt="Screenshot 2025-08-09 063915" src="https://github.com/user-attachments/assets/7b19f737-047b-4100-92f0-368df2ba22c4" />
+
 *first lines of code explaining calculator*
 
-![Screenshot2 :-c:\Users\IRENE ANN THOMAS\Pictures\Screenshots\Screenshot 2025-08-09 063932.png]
+<img width="1920" height="1080" alt="Screenshot 2025-08-09 063932" src="https://github.com/user-attachments/assets/8f54be94-feb2-4567-aa54-3599c69a2f45" />
+
 *webcam code*
 
-![Screenshot3 :- c:\Users\IRENE ANN THOMAS\Pictures\Screenshots\Screenshot 2025-08-09 063946.png]
+<img width="1920" height="1080" alt="Screenshot 2025-08-09 063946" src="https://github.com/user-attachments/assets/6fd6f3b1-66e4-403d-8520-490fc6307480" />
+
 *Documentation*
 
 # Diagrams
@@ -126,7 +129,7 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here:-<video controls src="Screen Recording 2025-08-09 071832.mp4" title="Title"></video>]
+
 *Explain what the video demonstrates*:-In this mood base calculator we have used mediapipe and when smiled the operation starts and closes and when not smiled it waits till smile is detected
 
 # Additional Demos
