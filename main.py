@@ -1,16 +1,16 @@
+
+
 import cv2
+import mediapipe as mp
+import time
 
-# Load Haar cascade files for face and smile detection
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
-
-# Function for calculator (returns result and emoji)
+# Calculator function
 def calculator():
     try:
         num1 = float(input("Enter first number: "))
         op = input("Enter operation (+, -, *, /): ")
         num2 = float(input("Enter second number: "))
-        
+
         emoji = ""
         result = None
 
@@ -41,52 +41,62 @@ def calculator():
         print("Invalid input")
         return None, ""
 
-# Open camera
-cap = cv2.VideoCapture(0)
+# Mediapipe setup
+mp_face_mesh = mp.solutions.face_mesh
+face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.7, min_tracking_confidence=0.7)
 
-while True:
+# Open webcam
+cap = cv2.VideoCapture(0)
+time.sleep(2)  # warm up camera
+
+smile_detected = False
+
+while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Convert to RGB
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    results = face_mesh.process(rgb_frame)
 
-    # Detect faces
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-    for (x, y, w, h) in faces:
-        roi_gray = gray[y:y+h, x:x+w]
+    h, w, _ = frame.shape
 
-        # Draw face rectangle
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+    if results.multi_face_landmarks:
+        for face_landmarks in results.multi_face_landmarks:
+            # Mouth coordinates
+            top_lip = face_landmarks.landmark[13]  # upper lip center
+            bottom_lip = face_landmarks.landmark[14]  # lower lip center
+            left_mouth = face_landmarks.landmark[78]  # left mouth corner
+            right_mouth = face_landmarks.landmark[308]  # right mouth corner
 
-        # Detect smiles
-        smiles = smile_cascade.detectMultiScale(roi_gray, 1.8, 20)
+            # Convert normalized coordinates to pixels
+            top_lip_y = int(top_lip.y * h)
+            bottom_lip_y = int(bottom_lip.y * h)
+            left_x = int(left_mouth.x * w)
+            right_x = int(right_mouth.x * w)
 
-        if len(smiles) > 0:
-            cv2.putText(frame, "Smile Detected! Running Calculator...", (50, 50),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-            cv2.imshow('Webcam', frame)
-            cv2.waitKey(500)
+            # Calculate distances
+            mouth_open = bottom_lip_y - top_lip_y
+            mouth_width = right_x - left_x
 
-            # Get result & emoji
-            result, emoji = calculator()
+            # Smile detection condition (adjust thresholds if needed)
+            if mouth_width > 60 and mouth_open < 25:
+                cv2.putText(frame, "Smile Detected!", (50, 50),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                smile_detected = True
+                break
 
-            # Show result + emoji in webcam
-            if result is not None:
-                text = f"Result: {result} {emoji}"
-                cv2.putText(frame, text, (50, 100),
-                            cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
-                cv2.imshow('Webcam', frame)
-                cv2.waitKey(3000)  # Show for 3 seconds
+    cv2.imshow("Smile Detection", frame)
 
-            cap.release()
-            cv2.destroyAllWindows()
-            exit()
+    if smile_detected:
+        result, emoji = calculator()
+        if result is not None:
+            print("Closing webcam...")
+        break
 
-    cv2.imshow('Webcam', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 cap.release()
 cv2.destroyAllWindows()
-
-
-
