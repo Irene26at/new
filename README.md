@@ -10,7 +10,7 @@
 
 ### Team Members
 - Team Lead: [Linta George] - [College of Engineering Perumon]
-- Member 2: [Name] - [College]
+- Member 2: [Irene Ann Thomas] - [College of Engineering Perumon]
 - Member 3: [Name] - [College]
 
 ### Project Description
