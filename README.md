@@ -126,8 +126,8 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[Add your demo video link here:-<video controls src="Screen Recording 2025-08-09 071832.mp4" title="Title"></video>]
+*Explain what the video demonstrates*:-In this mood base calculator we have used mediapipe and when smiled the operation starts and closes and when not smiled it waits till smile is detected
 
 # Additional Demos
 [Add any extra demo materials/links]
