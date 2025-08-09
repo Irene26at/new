@@ -1,16 +1,16 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+#MOOOD BASED CALCULATOR
 
 
 ## Basic Details
-### Team Name: [Game of codes]
+### Team Name: Game of codes
 
 
 ### Team Members
-- Team Lead: [Linta George] - [College of Engineering Perumon]
-- Member 2: [Irene Ann Thomas] - [College of Engineering Perumon]
+- Team Lead: Linta George - College of Engineering Perumon
+- Member 2: Irene Ann Thomas - College of Engineering Perumon
 - Member 3: [Name] - [College]
 
 ### Project Description
@@ -129,15 +129,15 @@ For Hardware:
 
 ### Project Demo
 # Video
-
-*Explain what the video demonstrates*:-In this mood base calculator we have used mediapipe and when smiled the operation starts and closes and when not smiled it waits till smile is detected
+https://drive.google.com/file/d/10OMCHG1y1PiufkSKmsjrkRaqlRKF-HiG/view?usp=sharing
+In this mood base calculator we have used mediapipe and when smiled the operation starts and closes and when not smiled it waits till smile is detected
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Linta George]: [Ideation,programming,documentation]
-- [Irene Ann Thomas]: [Programming,Documentation,Presentation]
+- Linta George: Ideation,programming,documentation
+- Irene Ann Thomas: Programming,Documentation,Presentation
 - [Name 3]: [Specific contributions]
 
 ---
