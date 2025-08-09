@@ -27,8 +27,8 @@ This project is an interactive web-based calculator that works only when you smi
 ### Technologies/Components Used
 For Software:
 - [Languages used:-Python]
-- [Frameworks used:-Opencv]
-- [Libraries used:-Opencv,Numpy]
+- [Frameworks used:-Opencv,Mediapipe]
+- [Libraries used:-Opencv,Numpy,Mediapipe]
 - [Tools used:-Webcam,command prompt,vscode,git,github]
 
 For Hardware:
